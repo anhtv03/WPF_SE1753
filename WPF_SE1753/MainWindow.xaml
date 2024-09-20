@@ -1,0 +1,56 @@
+﻿<Window x:Class="WPF_SE1753.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_SE1753"
+        mc:Ignorable="d"
+        WindowState="Maximized" 
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="0">
+            <Label Content="day la label"></Label>
+            <TextBox Width="100">
+                <TextBox.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="Red"></GradientStop>
+                        <GradientStop Offset="1" Color="Blue"></GradientStop>
+                    </LinearGradientBrush>
+                </TextBox.Background>
+            </TextBox>
+        </StackPanel>
+
+        <Canvas Background="AntiqueWhite" Grid.Column="1">
+            <!--ve meo-->
+            <Ellipse Canvas.Left="100" Canvas.Top="150" Width="200" Height="150" Fill="Gray"/>
+            <Ellipse Canvas.Left="140" Canvas.Top="70" Width="120" Height="120" Fill="Gray"/>
+            <Ellipse Canvas.Left="160" Canvas.Top="100" Width="20" Height="30" Fill="White"/>
+            <Ellipse Canvas.Left="167" Canvas.Top="110" Width="10" Height="20" Fill="Black"/>
+            <Ellipse Canvas.Left="220" Canvas.Top="100" Width="20" Height="30" Fill="White"/>
+            <Ellipse Canvas.Left="227" Canvas.Top="110" Width="10" Height="20" Fill="Black"/>
+            <Polygon Points="195,140 205,140 200,150" Fill="Pink"/>
+            <Path Stroke="Black" StrokeThickness="2" Data="M 190,150 Q 200,160 210,150"/>
+            <Polygon Points="140,70 160,30 180,70" Fill="Gray"/>
+            <Polygon Points="150,65 160,45 170,65" Fill="Pink"/>
+            <Polygon Points="220,70 240,30 260,70" Fill="Gray"/>
+            <Polygon Points="230,65 240,45 250,65" Fill="Pink"/>
+            <Path Stroke="Gray" StrokeThickness="12" Data="M 290,230 C 350,200 330,170 310,150"/>
+        </Canvas>
+
+        <Label Background="Aquamarine" Grid.Row="1" Grid.ColumnSpan="2"></Label>
+
+    </Grid>
+
+
+
+</Window>

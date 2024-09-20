@@ -1,0 +1,57 @@
+﻿<Window x:Class="WPF_SE1753.ProductNothWind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_SE1753"
+        mc:Ignorable="d"
+        Title="ProductNothWind" Loaded="Window_Loaded" Height="400" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0" Background="LightBlue" Orientation="Vertical" Width="400" HorizontalAlignment="Left">
+            <Label Foreground="Red" FontWeight="DemiBold" FontSize="24">Product Information</Label>
+
+            <Label FontSize="16">ID</Label>
+            <TextBox x:Name="tbId" Text="{Binding Path=EmployeeId}" DataContext="{Binding ElementName=lvEmps, Path=SelectedItem}" Height="24" IsReadOnly="True"></TextBox>
+
+            <Label FontSize="16">ProductName</Label>
+            <TextBox x:Name="tbName" Text="{Binding Path=FirstName}" DataContext="{Binding ElementName=lvEmps, Path=SelectedItem}" Height="24"></TextBox>
+
+            <Label FontSize="16">UnitPrice</Label>
+            <TextBox x:Name="tbPrice" Text="{Binding Path=LastName}" DataContext="{Binding ElementName=lvEmps, Path=SelectedItem}" Height="24"></TextBox>
+
+            <Label FontSize="16">Category</Label>
+            <ComboBox Name="cbCategory" Height="24" Width="200" Text="{Binding Path=CategoryName}" DataContext="{Binding ElementName=lvEmps, Path=SelectedItem}" HorizontalAlignment="Left"></ComboBox>
+
+            <Label FontSize="16">Suplier</Label>
+            <ComboBox Name="cbSuplier" Height="24" Width="200" Text="{Binding Path=CompanyName}" DataContext="{Binding ElementName=lvEmps, Path=SelectedItem}" HorizontalAlignment="Left"></ComboBox>
+
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="10" Padding="3" x:Name="btnInsert" Click="btnInsert_Click">Create</Button>
+                <Button Margin="10" Padding="3" x:Name="btnUpdate" Click="btnUpdate_Click">Update</Button>
+                <Button Margin="10" Padding="3" x:Name="btnDelete" Click="btnDelete_Click">Delete</Button>
+            </WrapPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Width="500" Margin="15 0">
+            <ListView x:Name="lvEmps">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ProductId" Width="100" DisplayMemberBinding="{Binding Path=ProductId}" />
+                        <GridViewColumn Header="ProductName" Width="100" DisplayMemberBinding="{Binding Path=ProductName}" />
+                        <GridViewColumn Header="UnitPrice" Width="100" DisplayMemberBinding="{Binding Path=UnitPrice}" />
+                        <GridViewColumn Header="Category" Width="100" DisplayMemberBinding="{Binding Path=Category.CategoryName}" />
+                        <GridViewColumn Header="Suplier" Width="100" DisplayMemberBinding="{Binding Path=Supplier.CompanyName}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+    </Grid>
+</Window>
