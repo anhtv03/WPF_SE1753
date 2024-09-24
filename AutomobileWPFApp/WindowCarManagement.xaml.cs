@@ -39,7 +39,7 @@ namespace AutomobileWPFApp {
             return car;
         }
         //---------------------------------------------
-        public async Task LoadCarList() => lvCars.ItemsSource = await _carRepository.GetCars();
+        public async Task LoadCarList() => lvCars.ItemsSource = _carRepository.GetCars();
         //---------------------------------------------
 
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AutomobileLibrary.Repository {
     public interface ICarRepository {
 
-        Task<IEnumerable<Car>> GetCars();
+        List<Car> GetCars();
 
         Car GetCarByID(int id);
 

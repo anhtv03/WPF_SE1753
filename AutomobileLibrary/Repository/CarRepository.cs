@@ -11,7 +11,7 @@ namespace AutomobileLibrary.Repository {
 
         public Car GetCarByID(int id) => CarManagement.Instance.GetCarByID(id);
 
-        public Task<IEnumerable<Car>> GetCars() => CarManagement.Instance.GetCarList();
+        public List<Car> GetCars() => CarManagement.Instance.GetCarList();
 
         public void InsertCar(Car car) => CarManagement.Instance.AddNew(car);
 

@@ -23,11 +23,11 @@ namespace AutomobileLibrary.DataAccess {
             }
         }
         //--------------------------------------------------
-        public async Task<IEnumerable<Car>> GetCarList() {
+        public List<Car> GetCarList() {
             List<Car> cars;
             try {
                 using (var myStockDB = new MyStockContext()) {
-                    cars = await myStockDB.Cars.ToListAsync();
+                    cars = myStockDB.Cars.ToList();
                 }
             } catch (Exception ex) {
                 throw new Exception(ex.Message);

@@ -1,4 +1,5 @@
 ﻿using AutomobileLibrary.Repository;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using System.Data;
@@ -18,12 +19,16 @@ namespace AutomobileWPFApp {
         }
 
         private void ConfigureServices(ServiceCollection services) {
-            services.AddSingleton(typeof(ICarRepository), typeof(CarRepository));
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            string repositoryType = config["repository"];
+
+            services.AddSingleton<ICarRepository>(provider => CarRepositoryFactory.CreateRepository(repositoryType));
             services.AddSingleton<WindowCarManagement>();
         }
 
         private void OnStartUp(object sender, EventArgs e) {
             var windowCarManagement = serviceProvider.GetService<WindowCarManagement>();
+            //var newWindow = new WindowCarManagement(serviceProvider.GetService<ICarRepository>());
             windowCarManagement.Show();
         }
 
