@@ -13,13 +13,13 @@ using System.Windows.Input;
 namespace AutomobileLibrary.ViewModels {
     public class CarViewModel : BaseViewModel {
 
-        private ICarRepository _carRepository;
+        private readonly ICarRepository _carRepository;
         private ObservableCollection<Car> _cars;
         private Car _currentCar;
 
-        public CarViewModel() {
+        public CarViewModel(ICarRepository carRepository) {
             CurrentCar = new Car();
-            _carRepository = new CarRepository();
+            _carRepository = carRepository;
             LoadDataCommand = new RelayCommand(LoadCar, CanLoadCar);
             AddCarCommand = new RelayCommand(AddCar, CanAddCar);
             UpdateCarCommand = new RelayCommand(UpdateCar, CanUpdateCar);

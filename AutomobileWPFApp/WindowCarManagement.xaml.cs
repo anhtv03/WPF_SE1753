@@ -7,9 +7,8 @@ namespace AutomobileWPFApp {
     /// </summary>
     public partial class WindowCarManagement : Window {
 
-        public WindowCarManagement() {
+        public WindowCarManagement(CarViewModel carViewModel) {
             InitializeComponent();
-            CarViewModel carViewModel = new CarViewModel();
             this.DataContext = carViewModel;
         }
 
