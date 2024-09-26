@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AutomobileLibrary.DataAccess
+namespace AutomobileLibrary.Models
 {
     public partial class Car
     {

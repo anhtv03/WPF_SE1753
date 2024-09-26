@@ -11,7 +11,7 @@ namespace AutomobileLibrary.Repository {
             if (repositoryType.Equals("SQLServer")) {
                 return new CarRepository();
             } else if (repositoryType.Equals("File")) {
-                return new CarFile();
+                return new CarFileRepository();
             } else {
                 throw new Exception();
             }

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutomobileLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomobileLibrary.DataAccess {
+namespace AutomobileLibrary.Manager {
     public class CarManagement {
 
         private static CarManagement instance = null;

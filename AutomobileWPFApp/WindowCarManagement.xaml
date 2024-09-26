@@ -22,32 +22,32 @@
                     <Label Foreground="Red" FontWeight="DemiBold" FontSize="20">Car Information</Label>
 
                     <Label FontSize="16">Car Id</Label>
-                    <TextBox x:Name="txtCarId" Text="{Binding Path=CarId, Mode=OneWay}" DataContext="{Binding ElementName=lvCars, Path=SelectedItem}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox x:Name="txtCarId" Text="{Binding CurrentCar.CarId}"  Height="25"  HorizontalAlignment="Stretch"></TextBox>
 
                     <Label FontSize="16">Car Name</Label>
-                    <TextBox x:Name="txtCarName"  Text="{Binding Path=CarName, Mode=OneWay}" DataContext="{Binding ElementName=lvCars, Path=SelectedItem}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox x:Name="txtCarName"  Text="{Binding CurrentCar.CarName}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
 
                     <Label FontSize="16">Manufacturer</Label>
-                    <TextBox x:Name="txtManufacturer"  Text="{Binding Path=Manufacturer, Mode=OneWay}" DataContext="{Binding ElementName=lvCars, Path=SelectedItem}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox x:Name="txtManufacturer"  Text="{Binding CurrentCar.Manufacturer}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
 
                     <Label FontSize="16">Price</Label>
-                    <TextBox x:Name="txtPrice"  Text="{Binding Path=Price, StringFormat={}{0:N3}, Mode=OneWay}" DataContext="{Binding ElementName=lvCars, Path=SelectedItem}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox x:Name="txtPrice"  Text="{Binding CurrentCar.Price, StringFormat={}{0:N3}}"  Height="25"  HorizontalAlignment="Stretch"></TextBox>
 
                     <Label FontSize="16">ReleasedYear</Label>
-                    <TextBox x:Name="txtReleasedYear"  Text="{Binding Path=ReleasedYear, Mode=OneWay}" DataContext="{Binding ElementName=lvCars, Path=SelectedItem}" Height="25"  HorizontalAlignment="Stretch"></TextBox>
+                    <TextBox x:Name="txtReleasedYear"  Text="{Binding CurrentCar.ReleasedYear}"  Height="25"  HorizontalAlignment="Stretch"></TextBox>
 
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Margin="10" Width="80"  x:Name="btnLoad" Click="btnLoad_Click" >Load</Button>
-                        <Button Margin="10" Width="80" x:Name="btnInsert" Click="btnInsert_Click">Insert</Button>
-                        <Button Margin="10" Width="80" x:Name="btnUpdate" Click="btnUpdate_Click">Update</Button>
-                        <Button Margin="10" Width="80" x:Name="btnDelete" Click="btnDelete_Click">Delete</Button>
+                        <Button Margin="10" Width="80" x:Name="btnLoad" Command="{Binding LoadDataCommand}" >Load</Button>
+                        <Button Margin="10" Width="80" x:Name="btnInsert" Command="{Binding AddCarCommand}" >Insert</Button>
+                        <Button Margin="10" Width="80" x:Name="btnUpdate" Command="{Binding UpdateCarCommand}" >Update</Button>
+                        <Button Margin="10" Width="80" x:Name="btnDelete" Command="{Binding DeleteCarCommand}" >Delete</Button>
                     </WrapPanel>
                 </StackPanel>
 
-                <ListView Grid.Row="2" x:Name="lvCars" Height="Auto" Width="Auto">
+                <ListView Grid.Row="2" x:Name="lvCars" ItemsSource="{Binding Cars}" SelectedItem="{Binding CurrentCar}" Height="Auto" Width="Auto">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Car Id" Width="100" DisplayMemberBinding="{Binding Path=CarId}" />
@@ -59,8 +59,8 @@
                     </ListView.View>
                 </ListView>
 
-                <Button Grid.Row="3" x:Name="btnClose" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                        Width="80" Click="btnClose_Click">CLose</Button>
+                <Button Grid.Row="3" x:Name="btnClose"  Margin="10" Command="{Binding CloseCommand}"
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" >CLose</Button>
 
             </Grid>
         </DockPanel>

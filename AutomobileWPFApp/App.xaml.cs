@@ -22,7 +22,8 @@ namespace AutomobileWPFApp {
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             string repositoryType = config["repository"];
 
-            services.AddSingleton<ICarRepository>(provider => CarRepositoryFactory.CreateRepository(repositoryType));
+            //services.AddSingleton<ICarRepository>(provider => CarRepositoryFactory.CreateRepository(repositoryType));
+            services.AddSingleton(typeof(ICarRepository), typeof(CarFileRepository));
             services.AddSingleton<WindowCarManagement>();
         }
 

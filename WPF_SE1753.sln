@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoBinding", "DemoBinding\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutomobileSolution", "AutomobileSolution", "{A20E3179-330F-4C95-B8B6-38E1BC51EB33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileLibrary", "AutomobileLibrary\AutomobileLibrary.csproj", "{81FBD141-3531-4A03-AD9D-BDF60DB08E72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileLibrary", "AutomobileLibrary\AutomobileLibrary.csproj", "{81FBD141-3531-4A03-AD9D-BDF60DB08E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomobileWPFApp", "AutomobileWPFApp\AutomobileWPFApp.csproj", "{CCFE1647-A8A1-49D4-94E0-DBBE261A9C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomobileWPFApp", "AutomobileWPFApp\AutomobileWPFApp.csproj", "{CCFE1647-A8A1-49D4-94E0-DBBE261A9C66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,23 +1,35 @@
-﻿using AutomobileLibrary.DataAccess;
+﻿using AutomobileLibrary.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
-
-namespace AutomobileLibrary.Repository {
-    public class CarFile : ICarRepository {
+namespace AutomobileLibrary.Manager {
+    public class CarFileManagement {
 
         private string _filePath;
-
-        public CarFile() {
+        private static CarFileManagement instance = null;
+        private static readonly object instanceLock = new object();
+        public CarFileManagement() {
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             this._filePath = config["filePath"];
         }
 
+        public static CarFileManagement Instance {
+            get {
+                lock (instanceLock) {
+                    if (instance == null) {
+                        instance = new CarFileManagement();
+                    }
+                    return instance;
+                }
+            }
+        }
+
+        //--------------------------------------------
         private List<Car> ReadFile() {
             if (!File.Exists(_filePath)) {
                 return new List<Car>();
@@ -71,7 +83,6 @@ namespace AutomobileLibrary.Repository {
                 WriteFile(cars);
             }
         }
-
 
     }
 }

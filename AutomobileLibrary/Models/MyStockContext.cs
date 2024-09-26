@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
-namespace AutomobileLibrary.DataAccess
+namespace AutomobileLibrary.Models
 {
     public partial class MyStockContext : DbContext
     {
